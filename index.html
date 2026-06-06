@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" content="#150a0f" />
+  <!-- mark JS available + resolve theme before paint (no flash) -->
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.add("js");
+      var t;
+      try { t = localStorage.getItem("prite-theme"); } catch (e) {}
+      if (t !== "light" && t !== "dark") {
+        t = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+      }
+      d.setAttribute("data-theme", t);
+    })();
+  </script>
+
+  <title>Bhakti Chauhan | Customer Success Leader</title>
+  <meta name="description" content="Bhakti Chauhan: global customer success leader in SaaS and Fintech, based in New York City. Driving strategic value realization, retention and long-term growth. Globetrotter, gym lover and fashion enthusiast." />
+  <meta name="author" content="Bhakti Chauhan" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Bhakti Chauhan | Customer Success Leader" />
+  <meta property="og:description" content="Global customer success leader in SaaS and Fintech, based in New York City. Strategic value realization, retention and growth." />
+  <meta property="og:url" content="https://priteshjchauhan.github.io/bhakti-website/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="canonical" href="https://priteshjchauhan.github.io/bhakti-website/" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%238c2f4d'/%3E%3Ctext x='32' y='45' font-family='Arial,sans-serif' font-size='38' font-weight='bold' fill='%23f3dcc4' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <!-- System-font fallback so typography still looks intentional fully offline -->
+  <style>
+    @font-face { font-family: "Sora"; src: local("Sora"); font-display: swap; }
+  </style>
+
+  <!-- Structured data for SEO + assistive parsing -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Bhakti Chauhan",
+    "jobTitle": "Global Customer Success Leader",
+    "description": "Global customer success leader in SaaS and Fintech, focused on strategic value realization, retention and long-term customer growth.",
+    "address": { "@type": "PostalAddress", "addressLocality": "New York City", "addressRegion": "NY", "addressCountry": "US" },
+    "url": "https://priteshjchauhan.github.io/bhakti-website/",
+    "sameAs": [
+      "https://www.linkedin.com/in/bhaktipchauhan/"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Accessibility: skip link -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Page-load intro / loader -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro-inner">
+      <span class="intro-brand">p.rite.sh</span>
+      <span class="intro-count"><span id="intro-count">0</span></span>
+    </div>
+    <div class="intro-bar"><span id="intro-bar-fill"></span></div>
+  </div>
+
+  <!-- Scroll progress indicator -->
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Cursor-follow aurora glow -->
+  <div class="cursor-aurora" aria-hidden="true"></div>
+
+  <!-- Custom cursor (fine pointers, motion on) -->
+  <div class="cursor" aria-hidden="true"><span class="cursor-dot"></span></div>
+
+  <!-- Decorative immersive 3D background (hidden from assistive tech) -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div class="bg-fallback" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Header / navigation -->
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="#top" aria-label="Bhakti Chauhan, home">
+        <span class="brand-mark" aria-hidden="true">B</span>
+        <span class="brand-text">Bhakti Chauhan</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#interests">Interests</a></li>
+        <li><a href="#connect">Connect</a></li>
+      </ul>
+      <button id="theme-toggle" class="icon-toggle" type="button" aria-label="Switch colour theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="4.2" fill="currentColor"/>
+          <g stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+            <path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5 5l2.1 2.1M16.9 16.9 19 19M19 5l-2.1 2.1M7.1 16.9 5 19"/>
+          </g>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.5 6.5 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+      <button id="motion-toggle" class="motion-toggle" type="button" aria-pressed="false">
+        <span class="motion-toggle-dot" aria-hidden="true"></span>
+        <span class="motion-toggle-label">Motion: <strong>On</strong></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Scrollytelling chapter rail (scrollspy) -->
+  <nav class="rail" aria-label="Section progress">
+    <ol>
+      <li><a href="#hero-title" data-rail="hero"><span class="rail-num">01</span><span class="rail-label">Intro</span></a></li>
+      <li><a href="#about" data-rail="about"><span class="rail-num">02</span><span class="rail-label">About</span></a></li>
+      <li><a href="#interests" data-rail="interests"><span class="rail-num">03</span><span class="rail-label">Interests</span></a></li>
+      <li><a href="#connect" data-rail="connect"><span class="rail-num">04</span><span class="rail-label">Connect</span></a></li>
+    </ol>
+  </nav>
+
+  <div class="smooth-wrap" id="smooth-wrap">
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="hero-eyebrow hero-anim">Currently in New York City, US</p>
+          <h1 id="hero-title" class="hero-title">
+            <span class="line"><span class="line-inner">Bhakti</span></span>
+            <span class="line"><span class="line-inner grad">Chauhan</span></span>
+          </h1>
+          <p class="hero-tags hero-anim" aria-label="Personal tags">
+            <span>Customer success leader</span><span aria-hidden="true">·</span>
+            <span>Globetrotter</span><span aria-hidden="true">·</span>
+            <span>Gym lover</span><span aria-hidden="true">·</span>
+            <span>Fashion enthusiast</span>
+          </p>
+          <div class="hero-cta hero-anim">
+            <a class="btn btn-primary" href="#about">Discover more</a>
+            <a class="btn btn-ghost" href="#connect">Let's connect</a>
+          </div>
+        </div>
+        <figure class="hero-portrait hero-anim">
+          <img src="assets/img/portrait.jpg" width="1536" height="2304"
+               alt="Portrait of Bhakti Chauhan, arms crossed against a brick wall."
+               loading="eager" decoding="async" />
+        </figure>
+      </div>
+      <a class="scroll-hint" href="#about" aria-label="Scroll to about section">
+        <span class="scroll-hint-dot" aria-hidden="true"></span>
+        <span>Scroll</span>
+      </a>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <p class="section-kicker reveal"><span class="chapter">02</span>This is Bhakti</p>
+        <h2 id="about-title" class="section-title reveal">A customer success leader who drives value.</h2>
+        <p class="about-lead reveal">
+          A <strong>global customer success leader</strong> across <strong>SaaS and Fintech</strong>.
+          She partners with enterprise customers to realize <strong>strategic value</strong>, drive
+          <strong>retention</strong>, and turn adoption into long-term growth, blending trusted
+          relationships, data, and a genuine focus on outcomes.
+        </p>
+        <p class="about-note reveal">
+          Based in New York City, Bhakti leads with empathy and rigor, building high-performing teams
+          and trusted partnerships that compound results over time.
+        </p>
+        <ul class="stats" aria-label="Highlights">
+          <li class="stat reveal">
+            <span class="stat-num">Value</span>
+            <span class="stat-label">Strategic realization</span>
+          </li>
+          <li class="stat reveal">
+            <span class="stat-num">Retention</span>
+            <span class="stat-label">Growth &amp; renewals</span>
+          </li>
+          <li class="stat reveal">
+            <span class="stat-num">NYC</span>
+            <span class="stat-label">Currently based</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- INTERESTS -->
+    <section class="section interests" id="interests" aria-labelledby="interests-title">
+      <div class="container">
+        <p class="section-kicker reveal"><span class="chapter">03</span>Beyond the work</p>
+        <h2 id="interests-title" class="section-title reveal">Things that drive me.</h2>
+        <ul class="cards" role="list">
+          <li class="card tilt reveal">
+            <div class="card-media card-media--icon" aria-hidden="true">
+              <span class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.8 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.8-3.8-9S9.5 5.6 12 3z"/>
+                </svg>
+              </span>
+            </div>
+            <div class="card-body">
+              <h3>Travel</h3>
+              <p>A globetrotter at heart, always chasing the next horizon, culture and connection.</p>
+            </div>
+          </li>
+          <li class="card tilt reveal">
+            <div class="card-media card-media--icon" aria-hidden="true">
+              <span class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6.5 7.5v9M17.5 7.5v9M3.5 9.5v5M20.5 9.5v5M6.5 12h11"/>
+                </svg>
+              </span>
+            </div>
+            <div class="card-body">
+              <h3>Gym</h3>
+              <p>Strength as a daily ritual, building discipline, energy and balance.</p>
+            </div>
+          </li>
+          <li class="card tilt reveal">
+            <div class="card-media card-media--icon" aria-hidden="true">
+              <span class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2.5l2.6 5.9 6.4.6-4.8 4.2 1.4 6.3L12 16.9 6.4 19.5l1.4-6.3L3 9l6.4-.6z"/>
+                </svg>
+              </span>
+            </div>
+            <div class="card-body">
+              <h3>Lifestyle</h3>
+              <p>Curating a life of intention, good design and continuous improvement.</p>
+            </div>
+          </li>
+          <li class="card tilt reveal">
+            <div class="card-media card-media--icon" aria-hidden="true">
+              <span class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 9V7a3 3 0 0 1 6 0v2"/><path d="M6.4 9h11.2l-.9 9.2a1.7 1.7 0 0 1-1.7 1.55H9a1.7 1.7 0 0 1-1.7-1.55z"/>
+                </svg>
+              </span>
+            </div>
+            <div class="card-body">
+              <h3>Fashion</h3>
+              <p>An eye for style and detail, expressing confidence through what she wears.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONNECT -->
+    <section class="section connect" id="connect" aria-labelledby="connect-title">
+      <div class="container connect-inner">
+        <p class="section-kicker reveal"><span class="chapter">04</span>Say hello</p>
+        <h2 id="connect-title" class="section-title reveal">Let's connect.</h2>
+        <p class="connect-lead reveal">
+          This site offers a window into Bhakti's world: a snapshot of her work and the interests
+          that shape it. The best place to reach her is LinkedIn.
+        </p>
+        <div class="connect-links connect-links--single reveal">
+          <a class="link-card" href="https://www.linkedin.com/in/bhaktipchauhan/" target="_blank" rel="noopener noreferrer">
+            <svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 18V9.99H5.67V18h2.67zM7 8.82a1.55 1.55 0 1 0 0-3.1 1.55 1.55 0 0 0 0 3.1zM18.34 18v-4.39c0-2.35-1.26-3.44-2.93-3.44-1.35 0-1.95.74-2.29 1.26V9.99h-2.66c.04.75 0 8.01 0 8.01h2.66v-4.47c0-.24.02-.48.09-.65.19-.48.63-.97 1.36-.97.96 0 1.35.73 1.35 1.8V18h2.67z"/>
+            </svg>
+            <span class="link-text">
+              <strong>LinkedIn</strong>
+              <span>Professional profile &amp; experience</span>
+            </span>
+            <span class="link-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-brand">Bhakti Chauhan</p>
+      <p class="footer-copy">© <span id="year">2025</span> Bhakti Chauhan. All rights reserved.</p>
+      <a class="footer-top" href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+  </div><!-- /.smooth-wrap -->
+
+  <!-- Vendored locally so the full 3D experience works on a plain file:// double-click -->
+  <script src="js/vendor/three.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
