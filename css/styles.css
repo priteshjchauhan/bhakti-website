@@ -792,7 +792,7 @@ html[data-theme-mode="dark"] .icon-toggle .icon-moon { display: block; }
 @media (max-width: 680px) { .stats { grid-template-columns: 1fr; } }
 
 /* =========================================================================
-   Poppinsests cards
+   Interests cards
    ========================================================================= */
 .cards {
   display: grid;
