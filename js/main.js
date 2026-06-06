@@ -364,10 +364,10 @@ function makeGlowTexture() {
   cv.width = cv.height = s;
   const ctx = cv.getContext("2d");
   const g = ctx.createRadialGradient(s / 2, s / 2, 0, s / 2, s / 2, s / 2);
-  g.addColorStop(0, "rgba(255,238,224,1)");
-  g.addColorStop(0.25, "rgba(230,170,150,0.85)");
-  g.addColorStop(0.55, "rgba(200,96,127,0.35)");
-  g.addColorStop(1, "rgba(200,96,127,0)");
+  g.addColorStop(0, "rgba(255,235,245,1)");
+  g.addColorStop(0.25, "rgba(245,150,185,0.85)");
+  g.addColorStop(0.55, "rgba(232,74,138,0.35)");
+  g.addColorStop(1, "rgba(232,74,138,0)");
   ctx.fillStyle = g;
   ctx.fillRect(0, 0, s, s);
   const tex = new THREE.CanvasTexture(cv);
@@ -378,7 +378,7 @@ function initThree() {
   if (three || !THREE || !supportsWebGL()) return;
 
   const scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2(0x150a0f, 0.026);
+  scene.fog = new THREE.FogExp2(0x190810, 0.026);
 
   const camera = new THREE.PerspectiveCamera(58, window.innerWidth / window.innerHeight, 0.1, 200);
   camera.position.set(0, 0, 32);
@@ -452,7 +452,7 @@ function initThree() {
   const nodeGeo = new THREE.BufferGeometry();
   nodeGeo.setAttribute("position", new THREE.BufferAttribute(nrender, 3).setUsage(THREE.DynamicDrawUsage));
   const nodePoints = new THREE.Points(nodeGeo, new THREE.PointsMaterial({
-    map: glowTex, color: 0xf0c0a0, size: 1.6, sizeAttenuation: true,
+    map: glowTex, color: 0xffaecb, size: 1.6, sizeAttenuation: true,
     transparent: true, opacity: 0.92, blending: THREE.AdditiveBlending, depthWrite: false,
   }));
   field.add(nodePoints);
@@ -531,7 +531,7 @@ function initThree() {
   dustGeo.setAttribute("position", new THREE.BufferAttribute(dpos, 3));
   const dustMat = new THREE.PointsMaterial({
     map: glowTex,
-    color: 0xd99f8f,
+    color: 0xe87ba6,
     size: 0.7,
     sizeAttenuation: true,
     transparent: true,
@@ -556,7 +556,7 @@ function initThree() {
   const starGeo = new THREE.BufferGeometry();
   starGeo.setAttribute("position", new THREE.BufferAttribute(spos, 3));
   const stars = new THREE.Points(starGeo, new THREE.PointsMaterial({
-    color: 0xf3e3d0, size: 0.5, transparent: true, opacity: 0.55, depthWrite: false,
+    color: 0xffe3ee, size: 0.5, transparent: true, opacity: 0.55, depthWrite: false,
   }));
   stars.material.fog = false;
   scene.add(stars);
@@ -635,7 +635,7 @@ function initThree() {
   buildTargets();
 
   function renderBloom() {
-    renderer.setClearColor(0x150a0f, 1);
+    renderer.setClearColor(0x190810, 1);
     renderer.setRenderTarget(rtScene);
     renderer.clear();
     renderer.render(scene, camera);
@@ -782,25 +782,25 @@ function initThree() {
   function setScenePalette(light) {
     LITE = light;
     if (light) {
-      scene.fog.color.setHex(0xf0e2e6);
+      scene.fog.color.setHex(0xf6e2ec);
       nodePoints.material.blending = THREE.NormalBlending;
-      nodePoints.material.color.setHex(0x8c2f4d);
+      nodePoints.material.color.setHex(0x7e1f3d);
       nodePoints.material.opacity = 0.9;
       lines.material.blending = THREE.NormalBlending;
       lines.material.opacity = 0.95;
       dust.material.blending = THREE.NormalBlending;
-      dust.material.color.setHex(0xa3506a);
+      dust.material.color.setHex(0xc04372);
       dust.material.opacity = 0.3;
       stars.material.opacity = 0.0;
     } else {
-      scene.fog.color.setHex(0x150a0f);
+      scene.fog.color.setHex(0x190810);
       nodePoints.material.blending = THREE.AdditiveBlending;
-      nodePoints.material.color.setHex(0xf0c0a0);
+      nodePoints.material.color.setHex(0xffaecb);
       nodePoints.material.opacity = 0.92;
       lines.material.blending = THREE.AdditiveBlending;
       lines.material.opacity = 0.8;
       dust.material.blending = THREE.AdditiveBlending;
-      dust.material.color.setHex(0xd99f8f);
+      dust.material.color.setHex(0xe87ba6);
       dust.material.opacity = 0.75;
       stars.material.opacity = 0.55;
     }
@@ -864,7 +864,7 @@ const prefersLight = window.matchMedia("(prefers-color-scheme: light)");
 function applyTheme(theme) {
   document.documentElement.setAttribute("data-theme", theme);
   const meta = document.querySelector('meta[name="theme-color"]');
-  if (meta) meta.setAttribute("content", theme === "light" ? "#f7eef0" : "#150a0f");
+  if (meta) meta.setAttribute("content", theme === "light" ? "#fdf0f5" : "#190810");
   if (themeToggle) {
     themeToggle.setAttribute("aria-label", theme === "light" ? "Switch to dark theme" : "Switch to light theme");
   }
