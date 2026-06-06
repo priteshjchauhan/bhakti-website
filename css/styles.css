@@ -9,11 +9,11 @@
   --surface-2: rgba(255, 255, 255, 0.08);
   --border:    rgba(214, 168, 140, 0.18);
   --border-2:  rgba(255, 255, 255, 0.10);
-  --text:      #eef1f9;          /* cool white */
-  --text-dim:  #aab4cc;
-  --text-mute: #6d7691;
+  --text:      #f5edf0;          /* warm near-white */
+  --text-dim:  #cbb3bc;
+  --text-mute: #8e7680;
 
-  /* Palette — navy (trust) with black + silver accents */
+  /* Palette — burgundy with black + rose-gold accents */
   --navy:      #8c2f4d;
   --navy-lt:   #c8607f;          /* bright azure highlight */
   --navy-deep: #45121f;
